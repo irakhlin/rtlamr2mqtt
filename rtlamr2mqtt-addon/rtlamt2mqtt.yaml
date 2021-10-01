@@ -13,9 +13,9 @@ custom_parameters:
   rtltcp: "-s 2048000"
   rtlamr: "-unique=true"
 meters:
-  id: 1550337017
-  protocol: idm
-  name: main_power
-  format: "######.##"
-  unit_of_measurement: kWh
-  icon: mdi:transmission-tower
+  - id: 1550337017
+    protocol: idm
+    name: main_power
+    format: "######.##"
+    unit_of_measurement: kWh
+    icon: mdi:transmission-tower
