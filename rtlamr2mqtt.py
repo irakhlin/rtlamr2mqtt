@@ -178,10 +178,10 @@ for idx,meter in enumerate(config['meters']):
             "unit_of_measurement": config['meters'][idx]['unit_of_measurement'],
             "icon": config['meters'][idx]['icon'],
             "availability_topic": availability_topic,
-            "state_topic": state_topic
-            "last_reset_topic": state_topic
-            "last_reset_value_template": last_reset_value_template
-            "device_class": device_class
+            "state_topic": state_topic,
+            "last_reset_topic": state_topic,
+            "last_reset_value_template": last_reset_value_template,
+            "device_class": device_class,
             "state_class": state_class
         }
         publish_message(hostname=mqtt_host, port=mqtt_port, username=mqtt_user, password=mqtt_password, topic=discover_topic, payload=dumps(discover_payload), retain=True)
