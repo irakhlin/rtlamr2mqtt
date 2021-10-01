@@ -1,3 +1,8 @@
 FROM irakhlin/rtlamr2mqtt:ha-addon
 
-CMD ["/usr/bin/rtlamr2mqtt.py", "/data/options.json"]
+# Copy data
+COPY data/run.sh /
+
+RUN chmod +x /run.sh
+
+CMD [ "/run.sh" ]
