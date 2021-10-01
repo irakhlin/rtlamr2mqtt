@@ -1,0 +1,21 @@
+general:
+  sleep_for: 300
+  verbosity: debug
+
+mqtt:
+  host: core-mosquitto
+  user: hass
+  password: hass
+  ha_autodiscovery: true
+  ha_autodiscovery_topic: homeassistant
+  
+custom_parameters:
+  rtltcp: "-s 2048000"
+  rtlamr: "-unique=true"
+meters:
+  id: 1550337017
+  protocol: idm
+  name: main_power
+  format: "######.##"
+  unit_of_measurement: kWh
+  icon: mdi:transmission-tower
