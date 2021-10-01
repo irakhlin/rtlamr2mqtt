@@ -10,7 +10,7 @@ mqtt:
   ha_autodiscovery_topic: homeassistant
   
 custom_parameters:
-  rtltcp: "-s 2048000"
+  rtltcp: ""
   rtlamr: "-unique=true"
 meters:
   - id: 1550337017
