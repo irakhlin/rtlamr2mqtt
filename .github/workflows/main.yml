@@ -9,7 +9,6 @@ on:
       - '.github/workflows/**'
       - 'examples/**'
     branches:
-      - main
       - ha-addon
     tags:
       - '*.*.*'
@@ -35,14 +34,11 @@ jobs:
           # generate Docker tags based on the following events/attributes
           tags: |
             type=ref,event=branch
-            type=semver,pattern={{version}}
             type=sha
       -
         name: Set up QEMU
         id: qemu
         uses: docker/setup-qemu-action@v1
-        with:
-          platforms: all
       -
         name: Set up Docker Buildx
         id: buildx
@@ -62,7 +58,8 @@ jobs:
         uses: docker/build-push-action@v2
         with:
           context: .
+          file: rtlamr2mqtt-addon/Dockerfile
           platforms: linux/amd64,linux/i386,linux/arm64,linux/arm/v7,linux/arm/v6
           push:  ${{ github.event_name != 'pull_request' }}
-          tags: ${{ steps.meta.outputs.tags }}
+          tags: ${{ github.actor }}/rtlamr2mqtt:ha-addon
           labels: ${{ steps.meta.outputs.labels }}
