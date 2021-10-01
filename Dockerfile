@@ -12,6 +12,7 @@ ENV RTLAMR_VER=v0.9.1
 
 COPY ./rtlamr2mqtt.py /usr/bin
 COPY ./requirements.txt /tmp
+COPY ./rtlamt2mqtt.yaml /etc
 
 WORKDIR /tmp
 RUN echo "Building to: ${TARGETARCH}" \
@@ -80,4 +81,4 @@ RUN \
         /tmp/*
         
 STOPSIGNAL SIGTERM
-CMD ["/usr/bin/rtlamr2mqtt.py"]
+CMD ["/usr/bin/rtlamr2mqtt.py","/etc/rtlamt2mqtt.yaml"] 

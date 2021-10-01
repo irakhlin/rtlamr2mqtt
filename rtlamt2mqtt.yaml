@@ -1,22 +1,21 @@
 general:
-  sleep_for: 0
+  sleep_for: 300
   verbosity: debug
 
 mqtt:
-  host: 127.0.0.1
-  user: test
-  password: testpassword
+  host: core-mosquitto
+  user: hass
+  password: hass
   ha_autodiscovery: true
   ha_autodiscovery_topic: homeassistant
-
+  
 custom_parameters:
   rtltcp: "-s 2048000"
-  rtlamr: "-unique=true -symbollength=32"
-
+  rtlamr: "-unique=true"
 meters:
-  - id: 12345678
-    protocol: scm+
-    name: test_meter
-    format: "######.###"
-    unit_of_measurement: "\u33A5"
-    icon: mdi:gauge
+  id: 1550337017
+  protocol: idm
+  name: main_power
+  format: "######.##"
+  unit_of_measurement: kWh
+  icon: mdi:transmission-tower
