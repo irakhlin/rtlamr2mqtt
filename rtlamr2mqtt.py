@@ -146,6 +146,10 @@ mqtt_user = config['mqtt'].get('user', None)
 mqtt_password = config['mqtt'].get('password', None)
 ha_autodiscovery_topic = config['mqtt'].get('ha_autodiscovery_topic', 'homeassistant')
 ha_autodiscovery = False
+device_class = 'energy'
+state_class = 'measurement'
+last_reset_value_template = '1970-01-01T00:00:00+00:00'
+
 if 'ha_autodiscovery' in config['mqtt']:
     if str(config['mqtt']['ha_autodiscovery']).lower() in ['true', 'yes']:
         ha_autodiscovery = True
@@ -175,6 +179,10 @@ for idx,meter in enumerate(config['meters']):
             "icon": config['meters'][idx]['icon'],
             "availability_topic": availability_topic,
             "state_topic": state_topic
+            "last_reset_topic": state_topic
+            "last_reset_value_template": last_reset_value_template
+            "device_class": device_class
+            "state_class": state_class
         }
         publish_message(hostname=mqtt_host, port=mqtt_port, username=mqtt_user, password=mqtt_password, topic=discover_topic, payload=dumps(discover_payload), retain=True)
 
