@@ -6,7 +6,6 @@
   "description": "RTLAMR to MQTT Bridge",
   "startup": "application",
   "boot": "auto",
-  "map": ["config:rw"],
   "url": "https://github.com/irakhlin/rtlamr2mqtt",
   "uart": true,
   "udev": true,
