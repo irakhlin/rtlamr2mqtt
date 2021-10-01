@@ -78,5 +78,6 @@ RUN \
     && apk del --no-cache --purge .build-dependencies \
     && rm -f -r \
         /tmp/*
-
+        
 STOPSIGNAL SIGTERM
+CMD ["/usr/bin/rtlamr2mqtt.py"]
