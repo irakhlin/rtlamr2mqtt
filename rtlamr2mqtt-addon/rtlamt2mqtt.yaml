@@ -1,5 +1,5 @@
 general:
-  sleep_for: 300
+  sleep_for: 150
   verbosity: debug
 
 mqtt:
@@ -10,8 +10,8 @@ mqtt:
   ha_autodiscovery_topic: homeassistant
   
 custom_parameters:
-  rtltcp: ""
-  rtlamr: "-unique=true"
+  rtltcp: "-s 2048000"
+  rtlamr: ""
 meters:
   - id: 1550337017
     protocol: idm

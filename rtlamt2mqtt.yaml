@@ -1,5 +1,5 @@
 general:
-  sleep_for: 300
+  sleep_for: 150
   verbosity: debug
 
 mqtt:
