@@ -145,7 +145,7 @@ mqtt_port = int(config['mqtt'].get('port', 1883))
 mqtt_user = config['mqtt'].get('user', None)
 mqtt_password = config['mqtt'].get('password', None)
 ha_autodiscovery_topic = config['mqtt'].get('ha_autodiscovery_topic', 'homeassistant')
-ha_autodiscovery = False
+ha_autodiscovery = True
 device_class = 'energy'
 state_class = 'measurement'
 last_reset = '1970-01-01T00:00:00+00:00'
@@ -179,7 +179,7 @@ for idx,meter in enumerate(config['meters']):
             "icon": config['meters'][idx]['icon'],
             "availability_topic": availability_topic,
             "state_topic": state_topic,
-            "last_reset": last_reset_value_template,
+            "last_reset": last_reset,
             "device_class": device_class,
             "state_class": state_class
         }
