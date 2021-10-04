@@ -148,7 +148,7 @@ ha_autodiscovery_topic = config['mqtt'].get('ha_autodiscovery_topic', 'homeassis
 ha_autodiscovery = False
 device_class = 'energy'
 state_class = 'measurement'
-last_reset_value_template = '1970-01-01T00:00:00+00:00'
+last_reset = '1970-01-01T00:00:00+00:00'
 
 if 'ha_autodiscovery' in config['mqtt']:
     if str(config['mqtt']['ha_autodiscovery']).lower() in ['true', 'yes']:
@@ -179,8 +179,7 @@ for idx,meter in enumerate(config['meters']):
             "icon": config['meters'][idx]['icon'],
             "availability_topic": availability_topic,
             "state_topic": state_topic,
-            "last_reset_topic": state_topic,
-            "last_reset_value_template": last_reset_value_template,
+            "last_reset": last_reset_value_template,
             "device_class": device_class,
             "state_class": state_class
         }
@@ -251,6 +250,9 @@ while True:
                             formated_reading = str(meter['format'].replace('#','{}').format(*raw_reading.zfill(meter['format'].count('#'))))
                         else:
                             formated_reading = str(raw_reading)
+                        if formated_reading[0] == '0':
+                            formated_reading = formated_reading[1:]
+                        formatted_reading_int = int(formated_reading)
                         log_message('Meter "{}" - Consumption {}. Sending value to MQTT.'.format(meter_id, formated_reading))
                         state_topic = 'rtlamr/{}/state'.format(meter_id)
                         publish_message(hostname=mqtt_host, port=mqtt_port, username=mqtt_user, password=mqtt_password, topic=state_topic, payload=formated_reading, retain=True)
