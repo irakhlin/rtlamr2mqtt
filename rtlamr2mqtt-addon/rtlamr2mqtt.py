@@ -252,7 +252,7 @@ while True:
                             formated_reading = str(raw_reading)
                         if formated_reading[0] == '0':
                             formated_reading = formated_reading[1:]
-                        formatted_reading_int = int(formated_reading)
+                        formatted_reading_int = float(formated_reading)
                         log_message('Meter "{}" - Consumption {}. Sending value to MQTT.'.format(meter_id, formated_reading))
                         state_topic = 'rtlamr/{}/state'.format(meter_id)
                         publish_message(hostname=mqtt_host, port=mqtt_port, username=mqtt_user, password=mqtt_password, topic=state_topic, payload=formated_reading, retain=True)
