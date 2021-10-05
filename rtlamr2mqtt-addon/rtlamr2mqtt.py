@@ -148,7 +148,6 @@ ha_autodiscovery_topic = config['mqtt'].get('ha_autodiscovery_topic', 'homeassis
 ha_autodiscovery = True
 device_class = 'energy'
 state_class = 'measurement'
-last_reset = '1970-01-01T00:00:00+00:00'
 
 if 'ha_autodiscovery' in config['mqtt']:
     if str(config['mqtt']['ha_autodiscovery']).lower() in ['true', 'yes']:
@@ -179,7 +178,6 @@ for idx,meter in enumerate(config['meters']):
             "icon": config['meters'][idx]['icon'],
             "availability_topic": availability_topic,
             "state_topic": state_topic,
-            "last_reset": last_reset,
             "device_class": device_class,
             "state_class": state_class
         }
