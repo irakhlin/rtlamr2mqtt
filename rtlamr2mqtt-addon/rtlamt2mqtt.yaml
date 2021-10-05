@@ -10,12 +10,12 @@ mqtt:
   ha_autodiscovery_topic: homeassistant
   
 custom_parameters:
-  rtltcp: "-s 2048000"
-  rtlamr: ""
+  rtltcp: ""
+  rtlamr: "-unique=true"
 meters:
   - id: 1550337017
     protocol: idm
-    name: main_power
+    name: total_energy_used
     format: "######.##"
     unit_of_measurement: kWh
     icon: mdi:transmission-tower

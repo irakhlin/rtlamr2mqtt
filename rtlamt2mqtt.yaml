@@ -15,7 +15,7 @@ custom_parameters:
 meters:
   - id: 1550337017
     protocol: idm
-    name: main_power
+    name: total_energy_used
     format: "######.##"
     unit_of_measurement: kWh
     icon: mdi:transmission-tower
